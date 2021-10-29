@@ -22,10 +22,8 @@ spec:
       enabled: false
     monitoring:
       enabled: true
-    cephClusterSpec:
-      dashboard:
-        enabled: true
-        urlPrefix: /
+    dashboard:
+      enabled: true
     ingress:
       dashboard:
         annotations:
@@ -36,7 +34,6 @@ spec:
         ingressClassName: "traefik"
         host:
           name: "rook.${SECRET_DOMAIN}"
-          path: "/"
         tls:
           - hosts:
               - "rook.${SECRET_DOMAIN}"
