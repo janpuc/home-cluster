@@ -32,6 +32,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+          traefik.ingress.kubernetes.io/router.tls: "false"
         ingressClassName: "traefik"
         host:
           name: "rook.${SECRET_DOMAIN}"
