@@ -33,7 +33,7 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        hosts:
+        rules:
           - host: "rook.${SECRET_DOMAIN}"
             http:
               paths:
