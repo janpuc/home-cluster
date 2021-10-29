@@ -24,6 +24,7 @@ spec:
       enabled: true
     dashboard:
       enabled: true
+      ssl: false
     ingress:
       dashboard:
         annotations:
