@@ -33,13 +33,14 @@ spec:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           hajimari.io/enable: "true"
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        ingressClassName: "traefik"
         host:
           name: "rook.${SECRET_DOMAIN}"
           path: "/"
         tls:
           - hosts:
               - "rook.${SECRET_DOMAIN}"
-            secretName: "rook-tls"
+            secretName: "rook-ceph-dashboard-tls"
       storage:
         useAllNodes: true
         useAllDevices: true
