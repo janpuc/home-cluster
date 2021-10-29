@@ -59,3 +59,12 @@ spec:
             - name: "sda3"
     cephFileSystems: []
     cephObjectStores: []
+  placement:
+    osd:
+      tolerations:
+        - effect: NoExecute
+          operator: Exists
+        - effect: NoSchedule
+          operator: Exists
+        - effect: PreferNoSchedule
+          operator: Exists
