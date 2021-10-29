@@ -38,23 +38,23 @@ spec:
           - hosts:
               - "rook.${SECRET_DOMAIN}"
             secretName: "rook-ceph-dashboard-tls"
-      storage:
-        useAllNodes: false
-        useAllDevices: false
-        # config:
-        #   osdsPerDevice: "1"
-        nodes:
-          - name: "k8s-0"
-            devices:
-              - name: "sda3"
-          - name: "k8s-1"
-            devices:
-              - name: "sda3"
-          - name: "k8s-2"
-            devices:
-              - name: "sda3"
-          - name: "k8s-3"
-            devices:
-              - name: "sda3"
+    storage:
+      useAllNodes: false
+      useAllDevices: false
+      # config:
+      #   osdsPerDevice: "1"
+      nodes:
+        - name: "k8s-0"
+          devices:
+            - name: "sda3"
+        - name: "k8s-1"
+          devices:
+            - name: "sda3"
+        - name: "k8s-2"
+          devices:
+            - name: "sda3"
+        - name: "k8s-3"
+          devices:
+            - name: "sda3"
     cephFileSystems: []
     cephObjectStores: []
