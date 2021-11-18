@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+    name: cloudflare-api-token
+    namespace: networking
+stringData:
+    cloudflare_api_token: ENC[AES256_GCM,data:B0KuqK2teM4mPueD0OFH9eI83zoMOJru5LtN9vw2j6HPRq6gmE8INg==,iv:YLSX8JqApwmFUqZWU/yzZpZq32K4iT7dQBhluKRFdwI=,tag:4l87TML81iNzPEUJOKmkAQ==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-11-18T12:31:56Z"
+    mac: ENC[AES256_GCM,data:rPz9n+JflcWDgGkXZKYVffCm5dxSkLXmGEMxIWw6dRouU2XRNuykNWSXiZBAKDCNDs3w0+Tk7Z7c/kns1B9Bvp07dZb8+I7F9QQ6lQkD+s65Xi02JwlvU8n5BOXubRWEYza303hQJ5QZe8NtiOMKrQM+Ke8H5t46xOO3OKC+Wo8=,iv:LdYFop7KJ+zIuJ4BbezTrfqWn48IYlnnJx0F3m2SJE0=,tag:UgR0frTVyao4Wo78dDtCiQ==,type:str]
+    pgp:
+        - created_at: "2021-11-18T12:31:55Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA7u9ZptfG2LzARAAnyHJN/8oZp1QJi5LAzEJAw/kUjETZMS8yCRa7ytHkFTz
+            iLHkKNwc+3iu3QWVl/LmgaPgpLw/79u0+42Q3yQyvMl4q9Cp3/nveRL/HyTppIvI
+            Sudhv5dTCTyj58db1AXx9wb7XEzACGL1J9+C/hADbKdppF9SIFqRTWpqaA5ZyTWG
+            Yy/Y8/Zu5enByxjr5gr6R5L+TisTDZKAsAX66dziFcfiBuRc/u/hmIEJ2Ihn/aMu
+            b/14DFFbHU8qlC2BGixFx7BQp6R1yeHZqxzjjhVAB14X/ohh4cKcTsq+A71ZwIol
+            9dQ3y9dLvkp9HNMcRO/bua9S5yGeesJbo+6AkbpYxXgQKzqwHrNCM98XCthy1hGi
+            LtZ28XpTr1P2lijsH6MSZe6eDOkEzmttDad9kYpskjPAwBKXdiH6pk1viTErq3x0
+            odIPkZq7sIt2l78z/Ch5cbFPbwvvWYbarirjnD4H6TM4NqgYYU4PWYjWVvpB0KbT
+            5KDP4J/8xu2q0T70yidYJntsbuZy5OABkwCEx7GnfFw4M43YR/IBQwFUNcwNUgGt
+            siXdzwpE00FHt2GbTZseXa+3CnzA4dIbmdukiUcB1Ij8jXRvhkbb7FgDm3K2WEp1
+            39r23VDZonkDjaeR4HSSs/FfHZmfK2SwiW142X2L8tikKlUdpcAtUNJUwUS4VIbU
+            aAEJAhDVLrMBKiiOyW/Wr6e5DsUENPrEn4FT3Mz2v4gpdcisK0yHAX2/NLP8liGe
+            8tlWitxh31LssqPsaMcrgsHzc4z9qQWD9Qjs4sV4AtFPEnSfHqn5qYdwmUw4fufu
+            elX07RsovTJF
+            =exAM
+            -----END PGP MESSAGE-----
+          fp: F87EE91C12866F36C1CC99E88606529B1E68B608
+    encrypted_regex: ^(data|stringData)$
+    version: 3.7.1
