@@ -5,6 +5,7 @@ metadata:
   name: kube-prometheus-stack
   namespace: monitoring
 spec:
+  nodeName: k8s-0
   interval: 5m
   chart:
     spec:
