@@ -172,6 +172,8 @@ spec:
       thanosService:
         enabled: false
       prometheusSpec:
+        nodeSelector:
+          kubernetes.io/hostname: k8s-0
         replicas: 1
         replicaExternalLabelName: "replica"
         ruleSelectorNilUsesHelmValues: false
