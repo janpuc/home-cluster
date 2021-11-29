@@ -9,6 +9,16 @@ spec:
   ref:
     branch: main
   url: https://github.com/janpuc/home-cluster
+  ignore: |
+    # exclude all
+    /*
+    # include charts dir
+    !/charts
+    # include deploy dir
+    !/cluster
+    # exclude file extensions from deploy dir
+    /cluster/**/*.md
+    /cluster/**/*.tmpl
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
