@@ -47,14 +47,14 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "file-document-outline"
         hosts:
-          - host: cv.${SECRET_SHORT_DOMAIN}
+          - host: "cv.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "cv.${SECRET_SHORT_DOMAIN}"
-            secretName: rxresume-cert
+              - "cv.${SECRET_DOMAIN}"
+            secretName: rxresume-tls
     resources:
       requests:
         memory: 100Mi
