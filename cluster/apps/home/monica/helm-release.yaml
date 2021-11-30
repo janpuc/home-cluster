@@ -25,7 +25,7 @@ spec:
       APP_ENV: production
       DB_HOST: monica-mariadb
       DB_DATABASE: ${SECRET_MONICA_DB_NAME}
-      DB_USER: ${SECRET_MONICA_DB_USER}
+      DB_USERNAME: ${SECRET_MONICA_DB_USER}
       DB_PASSWORD: ${SECRET_MONICA_DB_PASSWORD}
       DEFAULT_MAX_STORAGE_SIZE: 4096
       TZ: "Europe/Warsaw"
