@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - "hajimari"
   - "rxresume"
-  # - "vaultwarden"
+  - "vaultwarden"
