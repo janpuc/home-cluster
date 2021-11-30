@@ -1,0 +1,79 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: monica
+  namespace: home
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: monica
+      version: 6.3.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+      interval: 5m
+  values:
+    image:
+      repository: monica
+      tag: 3.1.1-apache
+    env:
+      APP_URL: https://monica.${SECRET_DOMAIN}
+      APP_ENV: production
+      DB_HOST: monica-mariadb
+      DB_DATABASE: ${SECRET_MONICA_DB_NAME}
+      DB_USER: ${SECRET_MONICA_DB_USER}
+      DB_PASSWORD: ${SECRET_MONICA_DB_PASSWORD}
+      DEFAULT_MAX_STORAGE_SIZE: 4096
+      TZ: "Europe/Warsaw"
+    envFrom:
+      - secretRef:
+          name: monica-secrets
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+          external-dns/is-public: "true"
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "panda"
+          traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+        hosts:
+          - host: monica.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - monica.${SECRET_DOMAIN}
+            secretName: "monica-tls"
+    persistence:
+      config:
+        enabled: true
+        existingClaim: monica-config
+    resources:
+      requests:
+        memory: 100Mi
+        cpu: 100m
+      limits:
+        memory: 200Mi
+    mariadb:
+      enabled: true
+      image:
+        registry: docker.io
+        repository: bitnami/mariadb
+        tag: 10.6.4-debian-10-r46
+      primary:
+        persistence:
+          enabled: true
+          existingClaim: monica-mariadb
+      auth:
+        database: ${SECRET_MONICA_DB_NAME}
+        username: ${SECRET_MONICA_DB_USER}
+        password: ${SECRET_MONICA_DB_PASSWORD}
+        rootPassword: ${SECRET_MONICA_DB_ROOT_PASSWORD}
