@@ -57,10 +57,10 @@ spec:
     resources:
       requests:
         cpu: 15m
-        memory: 105M
+        memory: 210M
       limits:
         cpu: 15m
-        memory: 105M
+        memory: 210M
     mariadb:
       enabled: true
       image:
