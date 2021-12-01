@@ -23,6 +23,7 @@ spec:
     env:
       APP_URL: https://monica.${SECRET_DOMAIN}
       APP_ENV: production
+      APP_KEY: ${SECRET_MONICA_APP_KEY}
       DB_HOST: monica-mariadb
       DB_DATABASE: ${SECRET_MONICA_DB_NAME}
       DB_USERNAME: ${SECRET_MONICA_DB_USER}
