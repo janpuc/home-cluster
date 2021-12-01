@@ -56,11 +56,10 @@ spec:
         existingClaim: monica-config
     resources:
       requests:
-        cpu: 15m
-        memory: 210M
+        memory: 100Mi
+        cpu: 50m
       limits:
-        cpu: 15m
-        memory: 210M
+        memory: 250Mi
     mariadb:
       enabled: true
       image:
